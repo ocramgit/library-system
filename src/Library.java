@@ -7,13 +7,15 @@ public class Library {
     boolean userIsInTheLibrary = true;
     ArrayList<Book> books;
     ArrayList<Person> users;
+    Computer computer;
     Scanner sc;
     private final String passwordSystem = "admin";
 
     public Library(String libraryName) {
-        setLibraryName(libraryName);
+        this.libraryName = libraryName;
         books = new ArrayList<>();
         users = new ArrayList<>();
+        computer = new Computer();
 
         sc = new Scanner(System.in);
     }
@@ -39,104 +41,138 @@ public class Library {
     }
 
     public void useComputer() {
-        System.out.println("COMPUTER: ");
-        System.out.println("1 - LOGIN AS ADMIN");
-        System.out.println("2 - LOGIN AS USER");
-        System.out.println("3 - REGISTER NEW USER");
-        System.out.println("4 - EXIT COMPUTER");
 
-        switch (sc.next()) {
-            case "1":
-                System.out.print("Password: ");
-                String userInput = sc.next();
+        boolean usingComputer = true;
 
-                if (userInput.equals(passwordSystem)) {
-                    loginAsAdmin();
-                } else {
-                    System.out.println("Wrong password!");
-                }
-                break;
-            case "2":
-                break;
-            case "3":
-                break;
-            case "4":
-                open();
-                break;
+        while (usingComputer) {
+            System.out.println("COMPUTER: ");
+            System.out.println("1 - LOGIN AS ADMIN");
+            System.out.println("2 - LOGIN AS USER");
+            System.out.println("3 - REGISTER NEW USER");
+            System.out.println("4 - EXIT COMPUTER");
+
+            switch (sc.next()) {
+                case "1":
+                    System.out.print("Password: ");
+                    String adminInput = sc.next();
+
+                    if (adminInput.equals(passwordSystem)) {
+                        loginAsAdmin();
+                    } else {
+                        System.out.println("Wrong password!");
+                    }
+                    break;
+                case "2":
+                    System.out.println("Username: ");
+                    String userInput = sc.next();
+                    System.out.println("Password: ");
+                    String passwordUserInput = sc.next();
+
+                    for (Person person : users) {
+                        if(person.getUsername().equals(userInput) && person.getPassword().equals(passwordUserInput)) {
+                            System.out.println("Access granted! Welcome, " + person.getName());
+                            loginAsUser(person);
+                            break;
+                        } else {
+                            System.out.println("Wrong credentials!");
+                        }
+                    }
+                    break;
+                case "3":
+                    computer.registerUser(users);
+                    break;
+                case "4":
+                    usingComputer = false;
+                    break;
+            }
         }
     }
 
     public void loginAsAdmin() {
 
-        System.out.println("ADMIN: ");
-        System.out.println("1 - GET LIBRARY STOCK");
-        System.out.println("2 - GET LIST OF BOOKS");
-        System.out.println("3 - REGISTER BOOK");
-        System.out.println("4 - REGISTER NEW USER ON SYSTEM");
-        System.out.println("5 - REMOVE USER FROM SYSTEM");
-        System.out.println("6 - GET USERS LIST");
-        System.out.println("7 - EXIT FROM COMPUTER");
+        boolean loggedIn = true;
 
-        switch (sc.next()) {
-            case "1":
-                System.out.println("STOCK: " + books.size());
-                loginAsAdmin();
-                break;
-            case "2":
-                int countBooks = 1;
+        while (loggedIn) {
 
-                for (Book booksList : books) {
-                    System.out.println(countBooks++ + ": " + booksList.getBookName());
-                }
-                loginAsAdmin();
-                break;
-            case "3":
-                System.out.println("Book name: ");
-                books.add(new Book(sc.next()));
-                System.out.println("Book added!");
-                loginAsAdmin();
-                break;
-            case "4":
-                System.out.println("Name of person: ");
-                String name = sc.nextLine();
-                System.out.println("Username: ");
-                sc.next();
-                String username = sc.nextLine();
-                System.out.println("Password: ");
-                sc.next();
-                String password = sc.nextLine();
-                users.add(new Person(name, username, password));
-                System.out.println("Add him as a library member?\n1 - YES\n2 - NO");
-                if (sc.nextInt() == 1) {
-                    for (int i = 0; i < users.size(); i++) {
-                        if (users.get(i).getName().equals(name)) {
-                            users.get(i).setMember(true);
-                            System.out.println("Added on membership club!");
-                        }
-                    }
-                }
-                System.out.println("Member added with success!");
-            loginAsAdmin();
-            break;
-            case "6":
+            System.out.println("ADMIN: ");
+            System.out.println("1 - GET LIBRARY STOCK");
+            System.out.println("2 - GET LIST OF BOOKS");
+            System.out.println("3 - REGISTER BOOK");
+            System.out.println("4 - REGISTER NEW USER ON SYSTEM");
+            System.out.println("5 - REMOVE USER FROM SYSTEM");
+            System.out.println("6 - GET USERS LIST");
+            System.out.println("7 - EXIT FROM COMPUTER");
 
-                int countUsers = 0;
-
-                for (int i = 0; i < users.size(); i++) {
-                    System.out.println(countUsers++ + ": " + users.get(i).getName() + " | MEMBER: " + users.get(i).isMember);
-                }
+            switch (sc.next()) {
+                case "1":
+                    getStock();
+                    break;
+                case "2":
+                    computer.getBookList(books);
+                    break;
+                case "3":
+                    computer.addBook(books);
+                    break;
+                case "4":
+                    computer.registerOnSystemANewUser(users);
+                    break;
+                case "5":
+                    computer.removeUserFromSystem(users);
+                    break;
+                case "6":
+                    computer.getUsersList(users);
+                    break;
+                case "7":
+                    loggedIn = false;
+                    break;
+            }
         }
     }
 
-    public String getPassword() {
-        return passwordSystem;
+    public void loginAsUser(Person user) {
+
+        boolean loggedIn = true;
+
+        while (loggedIn) {
+
+            System.out.println("ADMIN: ");
+            System.out.println("1 - GET MEMBERSHIP");
+            System.out.println("2 - CHECK MY BOOKS");
+            System.out.println("3 - REQUEST A BOOK");
+            System.out.println("4 - RETURN A BOOK");
+            System.out.println("5 - CHECK MY MEMBER STATUS");
+            System.out.println("5 - CHANGE PASSWORD");
+            System.out.println("6 - EXIT FROM COMPUTER");
+
+            switch (sc.next()) {
+                case "1":
+                    computer.getMembership(user);
+                    break;
+                case "2":
+                    computer.checkMyBooks(user);
+                    break;
+                case "3":
+                    //computer.requestBook();
+                    break;
+                case "4":
+                    //computer.returnBook();
+                    break;
+                case "5":
+                    //computer.changePassword();
+                    break;
+                case "6":
+                    loggedIn = false;
+                    break;
+            }
+        }
     }
 
     public String getLibraryName() {
         return libraryName;
     }
 
-    public void setLibraryName(String libraryName) {
-        this.libraryName = libraryName;
+    public void getStock() {
+        System.out.println("STOCK: "+ books.size());
     }
+
 }

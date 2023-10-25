@@ -1,9 +1,10 @@
 public class Book {
 
     private String bookName;
+    private int id;
 
     public Book(String bookName) {
-        setBookName(bookName);
+        this.bookName = bookName;
     }
 
     public String getBookName() {

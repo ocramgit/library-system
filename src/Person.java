@@ -1,17 +1,25 @@
+import java.util.ArrayList;
+
 public class Person {
     private String name;
     boolean isMember;
     private String username;
     private String password;
+    private ArrayList<Book> requestedBooks;
 
     public Person(String name) {
-        setName(name);
+        this.name = name;
     }
 
     public Person(String name, String username, String password) {
-        setName(name);
-        setUsername(username);
-        setPassword(password);
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        requestedBooks = new ArrayList<>();
+    }
+
+    public ArrayList<Book> getRequestedBooks() {
+        return requestedBooks;
     }
 
     public String getName() {
