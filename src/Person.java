@@ -18,7 +18,7 @@ public class Person {
         requestedBooks = new ArrayList<>();
     }
 
-    public ArrayList<Book> getRequestedBooks() {
+    public ArrayList<Book> getInventoryOfBooks() {
         return requestedBooks;
     }
 

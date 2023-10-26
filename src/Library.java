@@ -152,13 +152,13 @@ public class Library {
                     computer.checkMyBooks(user);
                     break;
                 case "3":
-                    //computer.requestBook();
+                    computer.requestBook(user, books);
                     break;
                 case "4":
-                    //computer.returnBook();
+                    computer.returnBook(user, books);
                     break;
                 case "5":
-                    //computer.changePassword();
+                    computer.changePassword(user);
                     break;
                 case "6":
                     loggedIn = false;

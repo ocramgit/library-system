@@ -74,17 +74,57 @@ public class Computer {
     public void getMembership(Person user) {
         if(!user.isMember) {
             user.isMember = true;
-            System.out.println("You're now member at this Library.");
+            System.out.println("You're now a member of this library.");
         } else {
             System.out.println("You already are a member.");
         }
     }
 
-    public void checkMyBooks(Person person) {
+    public void checkMyBooks(Person user) {
         int count = 1;
 
-        for (Book books : person.getRequestedBooks()) {
+        for (Book books : user.getInventoryOfBooks()) {
             System.out.println(count++ + " " + books.getBookName());
         }
     }
-}
+
+    public void requestBook(Person user, ArrayList<Book> books) {
+        getBookList(books);
+
+        System.out.println("What book you want to request?");
+        int inputUser = sc.nextInt();
+        Book requestedBook = books.get(inputUser-1);
+
+        if(user.isMember()) {
+            user.getInventoryOfBooks().add(requestedBook);
+            books.remove(requestedBook);
+            System.out.println("You now have the " + requestedBook.getBookName() + " book!");
+        } else {
+            System.out.println("You can't request a book because you're not a library member.");
+        }
+    }
+
+    public void returnBook(Person user, ArrayList<Book> books) {
+        checkMyBooks(user);
+
+        System.out.println("What book you want to return?");
+        int inputUser = sc.nextInt();
+        Book returnBook = user.getInventoryOfBooks().get(inputUser-1);
+
+        books.add(returnBook);
+        user.getInventoryOfBooks().remove(returnBook);
+        System.out.println("You returned the " + returnBook.getBookName() + " book!");
+    }
+
+    public void changePassword(Person user) {
+        System.out.println("What is your old password?");
+        String oldPassword = sc.nextLine();
+        if(oldPassword.equals(user.getPassword())) {
+            System.out.print("New password: ");
+            user.setPassword(sc.nextLine());
+            System.out.println("Password changed!");
+        } else {
+            System.out.println("Invalid password.");
+        }
+    }
+ }
