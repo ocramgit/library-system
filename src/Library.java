@@ -3,13 +3,12 @@ import java.util.Scanner;
 
 public class Library {
 
-    private String libraryName;
+    private final String libraryName;
     boolean userIsInTheLibrary = true;
     ArrayList<Book> books;
     ArrayList<Person> users;
     Computer computer;
     Scanner sc;
-    private final String passwordSystem = "admin";
 
     public Library(String libraryName) {
         this.libraryName = libraryName;
@@ -51,6 +50,7 @@ public class Library {
             System.out.println("3 - REGISTER NEW USER");
             System.out.println("4 - EXIT COMPUTER");
 
+            String passwordSystem = "admin";
             switch (sc.next()) {
                 case "1":
                     System.out.print("Password: ");
@@ -101,7 +101,7 @@ public class Library {
             System.out.println("4 - REGISTER NEW USER ON SYSTEM");
             System.out.println("5 - REMOVE USER FROM SYSTEM");
             System.out.println("6 - GET USERS LIST");
-            System.out.println("7 - EXIT FROM COMPUTER");
+            System.out.println("7 - EXIT FROM ADMIN SESSION");
 
             switch (sc.next()) {
                 case "1":
@@ -142,7 +142,7 @@ public class Library {
             System.out.println("4 - RETURN A BOOK");
             System.out.println("5 - CHECK MY MEMBER STATUS");
             System.out.println("5 - CHANGE PASSWORD");
-            System.out.println("6 - EXIT FROM COMPUTER");
+            System.out.println("6 - EXIT FROM USER SESSION");
 
             switch (sc.next()) {
                 case "1":

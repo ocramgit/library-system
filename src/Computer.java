@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Computer {
 
@@ -13,7 +12,7 @@ public class Computer {
         int countBooks = 1;
 
         for (Book booksList : books) {
-            System.out.println(countBooks++ + ": " + booksList.getBookName());
+            System.out.println(countBooks++ + ": " + booksList.getBookName() + " from " + booksList.getAuthor());
         }
     }
 
@@ -67,7 +66,10 @@ public class Computer {
 
     public void addBook(ArrayList<Book> books) {
         System.out.println("Book name: ");
-        books.add(new Book(sc.next()));
+        String bookName = sc.nextLine();
+        System.out.println("Author: ");
+        String author = sc.nextLine();
+        books.add(new Book(bookName, author));
         System.out.println("Book added!");
     }
 
@@ -89,6 +91,7 @@ public class Computer {
     }
 
     public void requestBook(Person user, ArrayList<Book> books) {
+
         getBookList(books);
 
         System.out.println("What book you want to request?");
@@ -96,6 +99,8 @@ public class Computer {
         Book requestedBook = books.get(inputUser-1);
 
         if(user.isMember()) {
+            System.out.println("You need to return the book until "+getRequestBookTime());
+
             user.getInventoryOfBooks().add(requestedBook);
             books.remove(requestedBook);
             System.out.println("You now have the " + requestedBook.getBookName() + " book!");
@@ -126,5 +131,12 @@ public class Computer {
         } else {
             System.out.println("Invalid password.");
         }
+    }
+
+    public String getRequestBookTime() {
+        Calendar calendar = new GregorianCalendar(TimeZone.getTimeZone("UTC"));
+        calendar.set(Calendar.MONTH, Calendar.NOVEMBER);
+
+        return calendar.get(Calendar.DAY_OF_MONTH)+5 + "/" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR) + ".";
     }
  }
