@@ -68,16 +68,33 @@ public class Library {
                     System.out.println("Password: ");
                     String passwordUserInput = sc.next();
 
+                    boolean userFound = false;
+                    boolean passwordFound = true;
+
+                    Person user = null;
+
                     for (Person person : users) {
-                        if(person.getUsername().equals(userInput) && person.getPassword().equals(passwordUserInput)) {
-                            System.out.println("Access granted! Welcome, " + person.getName());
-                            loginAsUser(person);
-                            break;
+                        if(person.getUsername().equals(userInput)) {
+                            userFound = true;
+                            user = person;
                         } else {
-                            System.out.println("Wrong credentials!");
+                            userFound = false;
                         }
+
+                        passwordFound = person.getPassword().equals(passwordUserInput);
                     }
-                    break;
+
+                    if (userFound) {
+                        if (passwordFound) {
+                            System.out.println("Access granted! Welcome, " + user.getName() + "!");
+                            loginAsUser(user);
+                        } else {
+                            System.out.println("Wrong password.");
+                        }
+                    } else {
+                        System.out.println("User not found.");
+                    }
+                        break;
                 case "3":
                     computer.registerUser(users);
                     break;
@@ -141,7 +158,7 @@ public class Library {
             System.out.println("3 - REQUEST A BOOK");
             System.out.println("4 - RETURN A BOOK");
             System.out.println("5 - CHECK MY MEMBER STATUS");
-            System.out.println("5 - CHANGE PASSWORD");
+            System.out.println("6 - CHANGE PASSWORD");
             System.out.println("6 - EXIT FROM USER SESSION");
 
             switch (sc.next()) {
@@ -158,9 +175,12 @@ public class Library {
                     computer.returnBook(user, books);
                     break;
                 case "5":
-                    computer.changePassword(user);
+                    computer.getMembershipStatus(user);
                     break;
                 case "6":
+                    computer.changePassword(user);
+                    break;
+                case "7":
                     loggedIn = false;
                     break;
             }

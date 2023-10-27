@@ -16,6 +16,14 @@ public class Computer {
         }
     }
 
+    public void getMembershipStatus(Person person) {
+        if(person.isMember) {
+            System.out.println("You're a library member.");
+        } else {
+            System.out.println("You're not a library member.");
+        }
+    }
+
     public void registerOnSystemANewUser(ArrayList<Person> users) {
         System.out.println("Name of person: ");
         String name = sc.nextLine();
