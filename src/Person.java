@@ -6,6 +6,7 @@ public class Person {
     private String username;
     private String password;
     private ArrayList<Book> requestedBooks;
+    private BankAccount bankAccount;
 
     public Person(String name) {
         this.name = name;
@@ -16,6 +17,7 @@ public class Person {
         this.username = username;
         this.password = password;
         requestedBooks = new ArrayList<>();
+        bankAccount = new BankAccount(name, 29);
     }
 
     public ArrayList<Book> getInventoryOfBooks() {
@@ -42,15 +44,15 @@ public class Person {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public void setMember(boolean member) {
         isMember = member;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public BankAccount getBankAccount() {
+        return bankAccount;
     }
 }

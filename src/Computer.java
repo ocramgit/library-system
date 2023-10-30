@@ -81,10 +81,17 @@ public class Computer {
         System.out.println("Book added!");
     }
 
-    public void getMembership(Person user) {
+    public void getMembership(Library library, Person user, double membershipPrice) {
         if(!user.isMember) {
-            user.isMember = true;
-            System.out.println("You're now a member of this library.");
+            if(user.getBankAccount().getBalance() > 25) {
+                user.isMember = true;
+                user.getBankAccount().setBalance(user.getBankAccount().getBalance()-membershipPrice);
+                library.getLibraryBankAccount().setBalance(library.getLibraryBankAccount().getBalance()+membershipPrice);
+                System.out.println("You're now a member of this library.");
+                System.out.println("We debited 25$ from your bank account.");
+            } else {
+                System.out.println("You don't have money to buy membership.");
+            }
         } else {
             System.out.println("You already are a member.");
         }
@@ -146,5 +153,9 @@ public class Computer {
         calendar.set(Calendar.MONTH, Calendar.NOVEMBER);
 
         return calendar.get(Calendar.DAY_OF_MONTH)+5 + "/" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR) + ".";
+    }
+
+    public void getLibraryBalance(Library library) {
+        System.out.println("Library balance: " + library.getLibraryBankAccount().getBalance()+"$");
     }
  }
