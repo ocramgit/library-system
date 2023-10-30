@@ -8,7 +8,7 @@ public class Library {
     private ArrayList<Book> books;
     private ArrayList<Person> users;
     private Computer computer;
-    private int membershipPrice = 25;
+    private double membershipPrice = 25;
     private BankAccount libraryBankAccount;
     Scanner sc;
 
@@ -49,24 +49,14 @@ public class Library {
 
         while (usingComputer) {
             System.out.println("COMPUTER: ");
-            System.out.println("1 - LOGIN AS ADMIN");
-            System.out.println("2 - LOGIN AS USER");
-            System.out.println("3 - REGISTER NEW USER");
-            System.out.println("4 - EXIT COMPUTER");
+            System.out.println("1 - LOGIN");
+            System.out.println("2 - REGISTER NEW USER");
+            System.out.println("3 - EXIT COMPUTER");
 
             String passwordSystem = "admin";
+            String usernameAdmin = "admin";
             switch (sc.next()) {
                 case "1":
-                    System.out.print("Password: ");
-                    String adminInput = sc.next();
-
-                    if (adminInput.equals(passwordSystem)) {
-                        loginAsAdmin();
-                    } else {
-                        System.out.println("Wrong password!");
-                    }
-                    break;
-                case "2":
                     System.out.println("Username: ");
                     String userInput = sc.next();
                     System.out.println("Password: ");
@@ -88,6 +78,12 @@ public class Library {
                         passwordFound = person.getPassword().equals(passwordUserInput);
                     }
 
+                    if(userInput.equals(usernameAdmin) && passwordUserInput.equals(passwordSystem)) {
+                        System.out.println("Welcome, Admin!");
+                        loginAsAdmin();
+                        break;
+                    }
+
                     if (userFound) {
                         if (passwordFound) {
                             System.out.println("Access granted! Welcome, " + user.getName() + "!");
@@ -99,10 +95,10 @@ public class Library {
                         System.out.println("User not found.");
                     }
                         break;
-                case "3":
+                case "2":
                     computer.registerUser(users);
                     break;
-                case "4":
+                case "3":
                     usingComputer = false;
                     break;
             }
@@ -123,7 +119,8 @@ public class Library {
             System.out.println("5 - REMOVE USER FROM SYSTEM");
             System.out.println("6 - GET USERS LIST");
             System.out.println("7 - CHECK LIBRARY BALANCE");
-            System.out.println("8 - EXIT FROM ADMIN SESSION");
+            System.out.println("8 - SET MEMBERSHIP PRICE");
+            System.out.println("9 - EXIT FROM ADMIN SESSION");
 
             switch (sc.next()) {
                 case "1":
@@ -148,6 +145,12 @@ public class Library {
                     computer.getLibraryBalance(this);
                     break;
                 case "8":
+                    System.out.println("Set a price! Default: 25");
+                    System.out.print("New price: ");
+                    membershipPrice = sc.nextDouble();
+                    System.out.println("New price setted.");
+                    break;
+                case "9":
                     loggedIn = false;
                     System.out.println("Logged out.");
                     break;
