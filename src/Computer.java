@@ -74,7 +74,8 @@ public class Computer {
 
     public void addBook(ArrayList<Book> books) {
         System.out.println("Book name: ");
-        String bookName = sc.nextLine();
+        String bookNameFix = sc.nextLine();
+        String bookName = bookNameFix;
         System.out.println("Author: ");
         String author = sc.nextLine();
         books.add(new Book(bookName, author));
@@ -158,4 +159,20 @@ public class Computer {
     public void getLibraryBalance(Library library) {
         System.out.println("Library balance: " + library.getLibraryBankAccount().getBalance()+"$");
     }
- }
+
+    public void removeBook(ArrayList<Book> books) {
+        getBookList(books);
+
+        System.out.println("What book you want to remove?");
+        System.out.print("Option: ");
+
+        int userInput = sc.nextInt();
+
+        if(books.size() >= userInput && books.get(userInput-1) != null) {
+            books.remove(userInput - 1);
+            System.out.println("Book removed.");
+        } else {
+            System.out.println("Book not found.");
+        }
+    }
+}

@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class Library {
 
     private String libraryName;
-    boolean userIsInTheLibrary = true;
+    private boolean userIsInTheLibrary = true;
     private ArrayList<Book> books;
     private ArrayList<Person> users;
     private Computer computer;
     private double membershipPrice = 25;
     private BankAccount libraryBankAccount;
-    Scanner sc;
+    private Scanner sc;
 
     public Library(String libraryName) {
         this.libraryName = libraryName;
@@ -116,11 +116,12 @@ public class Library {
             System.out.println("2 - GET LIST OF BOOKS");
             System.out.println("3 - REGISTER BOOK");
             System.out.println("4 - REGISTER NEW USER ON SYSTEM");
-            System.out.println("5 - REMOVE USER FROM SYSTEM");
-            System.out.println("6 - GET USERS LIST");
-            System.out.println("7 - CHECK LIBRARY BALANCE");
-            System.out.println("8 - SET MEMBERSHIP PRICE");
-            System.out.println("9 - EXIT FROM ADMIN SESSION");
+            System.out.println("5 - REMOVE BOOK");
+            System.out.println("6 - REMOVE USER FROM SYSTEM");
+            System.out.println("7 - GET USERS LIST");
+            System.out.println("8 - CHECK LIBRARY BALANCE");
+            System.out.println("9 - SET MEMBERSHIP PRICE");
+            System.out.println("10 - EXIT FROM ADMIN SESSION");
 
             switch (sc.next()) {
                 case "1":
@@ -136,21 +137,24 @@ public class Library {
                     computer.registerOnSystemANewUser(users);
                     break;
                 case "5":
-                    computer.removeUserFromSystem(users);
+                    computer.removeBook(books);
                     break;
                 case "6":
-                    computer.getUsersList(users);
+                    computer.removeUserFromSystem(users);
                     break;
                 case "7":
-                    computer.getLibraryBalance(this);
+                    computer.getUsersList(users);
                     break;
                 case "8":
+                    computer.getLibraryBalance(this);
+                    break;
+                case "9":
                     System.out.println("Set a price! Default: 25");
                     System.out.print("New price: ");
                     membershipPrice = sc.nextDouble();
                     System.out.println("New price setted.");
                     break;
-                case "9":
+                case "10":
                     loggedIn = false;
                     System.out.println("Logged out.");
                     break;
