@@ -17,7 +17,7 @@ public class Computer {
     }
 
     public void getMembershipStatus(Person person) {
-        if(person.isMember) {
+        if(person.isMember()) {
             System.out.println("You're a library member.");
         } else {
             System.out.println("You're not a library member.");
@@ -60,7 +60,7 @@ public class Computer {
         int countUsers = 1;
 
         for (Person user : users) {
-            System.out.println(countUsers++ + ": " + user.getName() + "| Username: "+ user.getUsername() + " MEMBER: " + user.isMember);
+            System.out.println(countUsers++ + ": " + user.getName() + "| Username: "+ user.getUsername() + " MEMBER: " + user.isMember());
         }
     }
 
@@ -82,9 +82,9 @@ public class Computer {
     }
 
     public void getMembership(Library library, Person user, double membershipPrice) {
-        if(!user.isMember) {
+        if(!user.isMember()) {
             if(user.getBankAccount().getBalance() > 25) {
-                user.isMember = true;
+                user.setMember(true);
                 user.getBankAccount().setBalance(user.getBankAccount().getBalance()-membershipPrice);
                 library.getLibraryBankAccount().setBalance(library.getLibraryBankAccount().getBalance()+membershipPrice);
                 System.out.println("You're now a member of this library.");

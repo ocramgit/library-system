@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Person {
     private String name;
-    boolean isMember;
+    private boolean isMember;
     private String username;
     private String password;
     private ArrayList<Book> requestedBooks;
