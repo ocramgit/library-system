@@ -1,8 +1,11 @@
+import java.io.IOException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Library {
 
+    private Logs logs = new Logs();
     private String libraryName;
     private boolean userIsInTheLibrary = true;
     private ArrayList<Book> books;
@@ -12,7 +15,7 @@ public class Library {
     private BankAccount libraryBankAccount;
     private Scanner sc;
 
-    public Library(String libraryName) {
+    public Library(String libraryName) throws IOException {
         this.libraryName = libraryName;
         books = new ArrayList<>();
         users = new ArrayList<>();
@@ -23,7 +26,7 @@ public class Library {
         sc = new Scanner(System.in);
     }
 
-    public void open() {
+    public void open() throws IOException {
         while (userIsInTheLibrary) {
             System.out.println("Welcome to the " + getLibraryName());
             System.out.println("1 - USE COMPUTER");
@@ -43,7 +46,7 @@ public class Library {
         }
     }
 
-    public void useComputer() {
+    public void useComputer() throws IOException {
 
         boolean usingComputer = true;
 
@@ -106,7 +109,7 @@ public class Library {
         }
     }
 
-    public void loginAsAdmin() {
+    public void loginAsAdmin() throws IOException {
 
         boolean loggedIn = true;
 
@@ -128,40 +131,50 @@ public class Library {
             switch (sc.next()) {
                 case "1":
                     getStock();
+                    logs.writeOnLog("Admin checked stock at " + LocalTime.now() + "\n");
                     break;
                 case "2":
                     computer.getBookList(books);
+                    logs.writeOnLog("Admin check book list at " + LocalTime.now() + "\n");
                     break;
                 case "3":
                     computer.addBook(books);
+                    logs.writeOnLog("Admin added a book at " + LocalTime.now() + "\n");
                     break;
                 case "4":
                     computer.registerOnSystemANewUser(users);
+                    logs.writeOnLog("Admin registered a new system user at "+LocalTime.now() + "\n");
                     break;
                 case "5":
                     computer.removeBook(books);
+                    logs.writeOnLog("Admin removed a book at "+LocalTime.now() + "\n");
                     break;
                 case "6":
                     computer.removeUserFromSystem(users);
+                    logs.writeOnLog("Admin removed a user from system at "+LocalTime.now() + "\n");
                     break;
                 case "7":
                     computer.getUsersList(users);
+                    logs.writeOnLog("Admin checked users list at "+LocalTime.now() + "\n");
                     break;
                 case "8":
                     computer.getLibraryBalance(this);
+                    logs.writeOnLog("Admin checked library balance at "+LocalTime.now() + "\n");
                     break;
                 case "9":
                     computer.setMembershipPrice(this);
+                    logs.writeOnLog("Admin setted a new membership price at "+LocalTime.now() + "\n");
                     break;
                 case "11":
                     loggedIn = false;
+                    logs.writeOnLog("Admin logged out at "+LocalTime.now() + "\n");
                     System.out.println("Logged out.");
                     break;
             }
         }
     }
 
-    public void loginAsUser(Person user) {
+    public void loginAsUser(Person user) throws IOException {
 
         boolean loggedIn = true;
 
@@ -179,24 +192,31 @@ public class Library {
             switch (sc.next()) {
                 case "1":
                     computer.getMembership(this, user, membershipPrice);
+                    logs.writeOnLog(user.getName() + " bought membership at "+LocalTime.now() + "\n");
                     break;
                 case "2":
                     computer.checkMyBooks(user);
+                    logs.writeOnLog(user.getName() + " checked books list at "+LocalTime.now() + "\n");
                     break;
                 case "3":
                     computer.requestBook(user, books);
+                    logs.writeOnLog(user.getName() + " requested a book at "+LocalTime.now() + "\n");
                     break;
                 case "4":
                     computer.returnBook(user, books);
+                    logs.writeOnLog(user.getName() + " returned a book at "+LocalTime.now() + "\n");
                     break;
                 case "5":
                     computer.getMembershipStatus(user);
+                    logs.writeOnLog(user.getName() + " checked membership status at "+LocalTime.now() + "\n");
                     break;
                 case "6":
                     computer.changePassword(user);
+                    logs.writeOnLog(user.getName() + " changed password at "+LocalTime.now() + "\n");
                     break;
                 case "7":
                     loggedIn = false;
+                    logs.writeOnLog(user.getName() + " logged out at "+LocalTime.now() + "\n");
                     System.out.println("Logged out.");
                     break;
             }

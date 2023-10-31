@@ -1,0 +1,6 @@
+Admin checked stock at 15:30:49.525930
+Admin check book list at 15:30:50.276880
+Admin logged out at 15:30:51.594767
+marco bought membership at 15:31:05.126594
+marco checked books list at 15:31:07.209951
+marco requested a book at 15:31:09.794035
