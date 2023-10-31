@@ -63,22 +63,23 @@ public class Library {
                     String passwordUserInput = sc.next();
 
                     boolean userFound = false;
-                    boolean passwordFound = true;
+                    boolean passwordFound = false;
 
                     Person user = null;
 
                     for (Person person : users) {
-                        if(person.getUsername().equals(userInput)) {
+                        if (person.getUsername().equals(userInput)) {
                             userFound = true;
                             user = person;
-                        } else {
-                            userFound = false;
-                        }
 
-                        passwordFound = person.getPassword().equals(passwordUserInput);
+                            if (person.getPassword().equals(passwordUserInput)) {
+                                passwordFound = true;
+                            }
+                            break;
+                        }
                     }
 
-                    if(userInput.equals(usernameAdmin) && passwordUserInput.equals(passwordSystem)) {
+                    if (userInput.equals(usernameAdmin) && passwordUserInput.equals(passwordSystem)) {
                         System.out.println("Welcome, Admin!");
                         loginAsAdmin();
                         break;
@@ -94,7 +95,7 @@ public class Library {
                     } else {
                         System.out.println("User not found.");
                     }
-                        break;
+                    break;
                 case "2":
                     computer.registerUser(users);
                     break;
@@ -121,7 +122,8 @@ public class Library {
             System.out.println("7 - GET USERS LIST");
             System.out.println("8 - CHECK LIBRARY BALANCE");
             System.out.println("9 - SET MEMBERSHIP PRICE");
-            System.out.println("10 - EXIT FROM ADMIN SESSION");
+            System.out.println("10 - CHECK USER INFO");
+            System.out.println("11 - EXIT FROM ADMIN SESSION");
 
             switch (sc.next()) {
                 case "1":
@@ -149,12 +151,9 @@ public class Library {
                     computer.getLibraryBalance(this);
                     break;
                 case "9":
-                    System.out.println("Set a price! Default: 25");
-                    System.out.print("New price: ");
-                    membershipPrice = sc.nextDouble();
-                    System.out.println("New price setted.");
+                    computer.setMembershipPrice(this);
                     break;
-                case "10":
+                case "11":
                     loggedIn = false;
                     System.out.println("Logged out.");
                     break;
@@ -214,5 +213,9 @@ public class Library {
 
     public BankAccount getLibraryBankAccount() {
         return libraryBankAccount;
+    }
+
+    public void setMembershipPrice(double membershipPrice) {
+        this.membershipPrice = membershipPrice;
     }
 }

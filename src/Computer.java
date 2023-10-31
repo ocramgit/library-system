@@ -60,8 +60,19 @@ public class Computer {
         int countUsers = 1;
 
         for (Person user : users) {
-            System.out.println(countUsers++ + ": " + user.getName() + "| Username: "+ user.getUsername() + " MEMBER: " + user.isMember());
+            System.out.println(countUsers++ + " "
+                    + user.getName()
+                    + " MEMBER: " + user.isMember());
+
+            System.out.print("Books: ");
+
+            for (int i = 0; i < user.getInventoryOfBooks().size(); i++) {
+
+                System.out.print(user.getInventoryOfBooks().get(i).getBookName() + " ");
+            }
+
         }
+
     }
 
     public void removeUserFromSystem(ArrayList<Person> users) {
@@ -112,16 +123,21 @@ public class Computer {
 
         System.out.println("What book you want to request?");
         int inputUser = sc.nextInt();
-        Book requestedBook = books.get(inputUser-1);
+        if (inputUser >= 1 && inputUser <= books.size()) {
+            Book requestedBook = books.get(inputUser - 1);
 
-        if(user.isMember()) {
-            System.out.println("You need to return the book until "+getRequestBookTime());
+            if (user.isMember()) {
+                String timeToReturn = getRequestBookTime();
+                System.out.println("You need to return the book until " + timeToReturn);
 
-            user.getInventoryOfBooks().add(requestedBook);
-            books.remove(requestedBook);
-            System.out.println("You now have the " + requestedBook.getBookName() + " book!");
+                user.getInventoryOfBooks().add(requestedBook);
+                books.remove(requestedBook);
+                System.out.println("You now have the " + requestedBook.getBookName() + "book!");
+            } else {
+                System.out.println("You can't request a book because you're not a library member.");
+            }
         } else {
-            System.out.println("You can't request a book because you're not a library member.");
+            System.out.println("Book not found.");
         }
     }
 
@@ -130,11 +146,16 @@ public class Computer {
 
         System.out.println("What book you want to return?");
         int inputUser = sc.nextInt();
+
+        if (inputUser >= 1 && inputUser <= user.getInventoryOfBooks().size()) {
         Book returnBook = user.getInventoryOfBooks().get(inputUser-1);
 
-        books.add(returnBook);
-        user.getInventoryOfBooks().remove(returnBook);
-        System.out.println("You returned the " + returnBook.getBookName() + " book!");
+            books.add(returnBook);
+            user.getInventoryOfBooks().remove(returnBook);
+            System.out.println("You returned the " + returnBook.getBookName() + " book!");
+        } else {
+            System.out.println("You don't have this book.");
+        }
     }
 
     public void changePassword(Person user) {
@@ -153,7 +174,7 @@ public class Computer {
         Calendar calendar = new GregorianCalendar(TimeZone.getTimeZone("UTC"));
         calendar.set(Calendar.MONTH, Calendar.NOVEMBER);
 
-        return calendar.get(Calendar.DAY_OF_MONTH)+5 + "/" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR) + ".";
+        return calendar.get(Calendar.DAY_OF_MONTH)+15 + "/" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR) + ".";
     }
 
     public void getLibraryBalance(Library library) {
@@ -174,5 +195,13 @@ public class Computer {
         } else {
             System.out.println("Book not found.");
         }
+    }
+
+    public void setMembershipPrice(Library library) {
+        System.out.println("Set a price! Default: 25");
+        System.out.print("New price: ");
+        double price = sc.nextDouble();
+        System.out.println("New price setted.");
+        library.setMembershipPrice(price);
     }
 }
