@@ -45,14 +45,32 @@ public class Computer {
     }
 
     public void registerUser(ArrayList<Person> users) {
+
+        boolean userExists = false;
+
         System.out.println("Name of person: ");
         String name = sc.next();
         System.out.println("Username: ");
         String username = sc.next();
         System.out.println("Password: ");
         String password = sc.next();
-        users.add(new Person(name, username, password));
-        System.out.println("Member added with success!");
+
+        for (Person user : users) {
+            if (user.getUsername().equals(username)) {
+                userExists = true;
+                System.out.println("Username already exists!");
+            }
+        }
+
+        if(username.equalsIgnoreCase("admin")) {
+            System.out.println("You can't create this privileged user.");
+            userExists = true;
+        }
+
+            if(!userExists) {
+                users.add(new Person(name, username, password));
+                System.out.println("Member added with success!");
+            }
     }
 
     public void getUsersList(ArrayList<Person> users) {
@@ -132,7 +150,7 @@ public class Computer {
 
                 user.getInventoryOfBooks().add(requestedBook);
                 books.remove(requestedBook);
-                System.out.println("You now have the " + requestedBook.getBookName() + "book!");
+                System.out.println("You now have the " + requestedBook.getBookName() + " book!");
             } else {
                 System.out.println("You can't request a book because you're not a library member.");
             }
