@@ -18,7 +18,8 @@ The library system is a project for Mindera School that involved making a termin
 - Filter logs by user
 
 # User
-- Buy membership Check your books
+- Buy membership
+- Check your books
 - Request a book
 - Return a book
 - Check membership status
