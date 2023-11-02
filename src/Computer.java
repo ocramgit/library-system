@@ -55,11 +55,11 @@ public class Computer {
 
         boolean userExists = false;
 
-        System.out.println("\n\u001b[32;1mName of person: \u001b[0m ");
+        System.out.print("\n\u001b[32;1mName of person: \u001b[0m ");
         String name = sc.next();
-        System.out.println("\u001b[32;1mUsername: \u001b[0m ");
+        System.out.print("\u001b[32;1mUsername: \u001b[0m ");
         String username = sc.next();
-        System.out.println("\u001b[32;1mPassword: \u001b[0m ");
+        System.out.print("\u001b[32;1mPassword: \u001b[0m ");
         String password = sc.next();
 
         for (Person user : users) {
@@ -166,9 +166,9 @@ public class Computer {
 
     public void requestBook(Person user, ArrayList<Book> books) {
         if (user.isMember()) {
-        getBookList(books);
 
         if (!books.isEmpty()) {
+            getBookList(books);
             System.out.println("\n\u001b[31;1mWhat book you want to request?\u001b[0m\n");
             System.out.print("\u001b[31;1mPlease select a option: \u001b[0m\n");
             int inputUser = sc.nextInt();
@@ -274,14 +274,14 @@ public class Computer {
         boolean loggedInBank = false;
 
         if(user.getBankAccount().getPin() == null) {
-            System.out.println("\n\u001b[32;1mChoose a pin with 4 digits and no letters.\u001b[0m");
+            System.out.println("\n\u001b[32;1mChoose a pin with 4 digits.\u001b[0m");
             System.out.print("\u001b[32;1mPin: \u001b[0m");
             String pin = sc.next();
             if(pin.length() == 4) {
                 user.getBankAccount().setPin(pin);
-                System.out.println("\u001b[32;1mPin setted.\u001b[0m\n");
+                System.out.println("\u001b[32;1mPin set.\u001b[0m\n");
             } else {
-                System.out.println("\n\u001b[31;1mYou need add a pin with 4 digits without letters.\u001b[0m\n");
+                System.out.println("\n\u001b[31;1mYou need add a pin with 4 digits.\u001b[0m\n");
             }
         } else {
             System.out.println("\u001b[32;1mEnter bank pin:\u001b[0m");
@@ -310,7 +310,12 @@ public class Computer {
                     if(user.getBankAccount().getPin().equals(oldPin)) {
                         System.out.print("\u001b[32;1mNew pin: \u001b[0m");
                         String newPin = sc.next();
-                        user.getBankAccount().setPin(newPin);
+                        if(newPin.length() == 4) {
+                            user.getBankAccount().setPin(newPin);
+                            System.out.println("\u001b[32;1mPin set.\u001b[0m\n");
+                        } else {
+                            System.out.println("\n\u001b[31;1mThe pin length is invalid.\u001b[0m\n");
+                        }
                     } else {
                         System.out.println("\n\u001b[31;1mWrong pin.\u001b[0m\n");
                     }
@@ -318,6 +323,9 @@ public class Computer {
                 case "3":
                     System.out.println("\n\u001b[31;1mLogged out.\u001b[0m\n");
                     loggedInBank = false;
+                    break;
+                default:
+                    System.out.println("\u001b[31;1mInvalid option.\u001b[0m");
                     break;
             }
         }
