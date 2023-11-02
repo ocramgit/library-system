@@ -8,10 +8,6 @@ public class Person {
     private ArrayList<Book> requestedBooks;
     private BankAccount bankAccount;
 
-    public Person(String name) {
-        this.name = name;
-    }
-
     public Person(String name, String username, String password) {
         this.name = name;
         this.username = username;

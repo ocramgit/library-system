@@ -1,11 +1,13 @@
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Logs {
 
-    File file;
-    FileWriter fileWriter;
+    private File file;
+    private FileWriter fileWriter;
 
     public Logs() {
         file = new File("logs.txt");
@@ -34,4 +36,22 @@ public class Logs {
         in.close();
     }
 
+    public void getUserLogs(Computer computer, ArrayList<Person> users) throws IOException {
+
+        Scanner sc = new Scanner(System.in);
+
+        BufferedReader in = new BufferedReader(new FileReader(file.getAbsolutePath()));
+        String line = in.readLine();
+
+        System.out.println("Write a username: ");
+        String username = sc.nextLine();
+
+            while (line != null) {
+                if(line.contains(username)) {
+                    System.out.println(line);
+                    line = in.readLine();
+                }
+            }
+            System.out.println("User not found.");
+    }
 }

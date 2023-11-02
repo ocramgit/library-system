@@ -133,3 +133,34 @@ admin000 requested a book at 2023-11-02 | 12:52:23.469987
 admin000 requested a book at 2023-11-02 | 12:52:25.255164
 admin000 logged out at 2023-11-02 | 12:52:32.458156
 Admin checked stock at 2023-11-02 | 12:52:40.137152
+marco worked online at 2023-11-02 | 13:02:08.980553
+marco worked online at 2023-11-02 | 13:02:13.643712
+marco worked online at 2023-11-02 | 13:02:18.171122
+marco entered on Bank Online at 2023-11-02 | 13:02:26.543502
+marco logged out at 2023-11-02 | 13:02:28.481629
+marco entered on Bank Online at 2023-11-02 | 13:02:36.894248
+marco logged out at 2023-11-02 | 13:02:41.001317
+Admin checked logs at 2023-11-02 | 13:02:44.513454
+Admin checked logs at 2023-11-02 | 13:04:54.547255
+Admin checked logs at 2023-11-02 | 13:08:41.843102
+marco logged out at 2023-11-02 | 15:04:25.545258
+Admin logged out at 2023-11-02 | 15:04:33.949392
+Admin registered a new system user at 2023-11-02 | 18:37:51.590866
+Admin removed a user from system at 2023-11-02 | 18:57:37.570941
+Admin removed a user from system at 2023-11-02 | 18:57:56.177575
+Admin removed a user from system at 2023-11-02 | 19:01:09.022769
+Admin removed a user from system at 2023-11-02 | 19:02:45.923448
+Admin removed a user from system at 2023-11-02 | 19:03:37.360692
+Admin registered a new system user at 2023-11-02 | 19:03:57.504191
+Admin removed a user from system at 2023-11-02 | 19:04:05.011147
+Admin removed a user from system at 2023-11-02 | 19:05:06.726346
+Admin check book list at 2023-11-02 | 19:05:09.105261
+Admin checked users list at 2023-11-02 | 19:05:12.418136
+Admin logged out at 2023-11-02 | 19:05:19.671979
+marco logged out at 2023-11-02 | 19:07:11.125035
+Admin removed a user from system at 2023-11-02 | 19:09:51.967418
+Admin removed a user from system at 2023-11-02 | 19:09:56.078462
+Admin registered a new system user at 2023-11-02 | 19:11:27.094800
+Admin removed a user from system at 2023-11-02 | 19:11:41.817362
+Admin removed a user from system at 2023-11-02 | 19:12:15.742884
+Admin checked library balance at 2023-11-02 | 19:12:20.993315

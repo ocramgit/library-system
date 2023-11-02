@@ -185,6 +185,9 @@ public class Library {
                     logs.writeOnLog("Admin logged out at "+ LocalDate.now() + " | " + LocalTime.now() + "\n");
                     System.out.println("\u001b[31;1mLogged out.\u001b[0m");
                     break;
+                case "12":
+                    logs.getUserLogs(computer, users);
+                    break;
                 default:
                     System.out.println("\u001b[31;1mInvalid option.\u001b[0m");
                     break;
