@@ -129,7 +129,7 @@ public class Computer {
         String bookNameFix = sc.nextLine();
         String bookName = bookNameFix;
         System.out.println("\u001b[32;1mAuthor: \u001b[0m");
-        String author = sc.next();
+        String author = sc.nextLine();
         books.add(new Book(bookName, author));
         System.out.println("\u001b[32;1mBook added!\u001b[0m\n");
     }
@@ -153,9 +153,11 @@ public class Computer {
     public void checkMyBooks(Person user) {
         int count = 1;
 
+        System.out.println("\u001b[32;1mYour books: \u001b[0m");
+
         if(!user.getInventoryOfBooks().isEmpty()) {
             for (Book books : user.getInventoryOfBooks()) {
-                System.out.println(count++ + " " + books.getBookName());
+                System.out.println("\u001b[37;1m" + count++ + " - " + books.getBookName() + "\u001b[0m");
             }
         } else {
             System.out.println("\n\u001b[31;1mYou don't have any book.\u001b[0m\n");
@@ -174,19 +176,19 @@ public class Computer {
                 Book requestedBook = books.get(inputUser - 1);
 
                     String timeToReturn = getRequestBookTime();
-                    System.out.println("\n\u001b[32;1mYou need to return the book until \u001b[31;1m" + timeToReturn+ "\u001b[0m\n");
+                    System.out.println("\n\u001b[32;1mYou need to return the book until \u001b[31;1m" + timeToReturn+ "\u001b[0m");
 
                     user.getInventoryOfBooks().add(requestedBook);
                     books.remove(requestedBook);
                     System.out.println("\n\u001b[32;1mYou now have the " + requestedBook.getBookName() + " book!\u001b[0m\n");
                 } else {
-                    System.out.println("\n\u001b[31;1mYou can't request a book because you're not a library member.\u001b[0m\n");
+                System.out.println("\n\u001b[31;1mBook not found.\u001b[0m\n");
                 }
             } else {
-                System.out.println("\n\u001b[31;1mBook not found.\u001b[0m\n");
+                System.out.println("\n\u001b[31;1mThis library don't have any book.\u001b[0m\n");
             }
         } else {
-            System.out.println("\n\u001b[31;1mThis library don't have any book.\u001b[0m");
+            System.out.println("\n\u001b[31;1mYou can't request a book because you're not a library member.\u001b[0m\n");
         }
     }
 
@@ -203,18 +205,12 @@ public class Computer {
 
                 books.add(returnBook);
                 user.getInventoryOfBooks().remove(returnBook);
-                System.out.println();
                 System.out.println("\n\u001b[32;1mYou returned the " + returnBook.getBookName() + " book!\u001b[0m\n");
-                System.out.println();
             } else {
-                System.out.println();
                 System.out.println("\n\u001b[31;1mYou don't have this book.\u001b[0m\n");
-                System.out.println();
             }
         } else {
-            System.out.println();
             System.out.println("\n\u001b[31;1mYou don't have any book.\u001b[0m\n");
-            System.out.println();
         }
     }
 
@@ -300,11 +296,11 @@ public class Computer {
         }
 
         while(loggedInBank) {
-            System.out.println("1 - CHECK BALANCE");
-            System.out.println("2 - CHANGE PIN");
-            System.out.println("3 - LOGOUT FROM BANK");
+            System.out.println("\u001b[37;1m1 - CHECK BALANCE\u001b[0m");
+            System.out.println("\u001b[37;1m2 - CHANGE PIN\u001b[0m");
+            System.out.println("\u001b[37;1m3 - LOGOUT FROM BANK\u001b[0m");
 
-            switch(sc.next()) {
+            switch(sc.next().replaceAll("[^0-9]", "")) {
                 case "1":
                     System.out.println("\u001b[32;1mBalance: \u001b[0m" +user.getBankAccount().getBalance());
                     break;

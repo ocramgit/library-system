@@ -136,7 +136,7 @@ public class Library {
             System.out.println("\u001b[37;1m11 - EXIT FROM ADMIN SESSION\u001b[0m");
             System.out.print("\u001b[31;1mPlease select a option: \u001b[0m");
 
-            switch (sc.next()) {
+            switch (sc.next().replaceAll("[^0-9]", "")) {
                 case "1":
                     getStock();
                     logs.writeOnLog("Admin checked stock at " + LocalDate.now() + " | " + LocalTime.now() + "\n");
@@ -203,7 +203,7 @@ public class Library {
             System.out.println("\u001b[37;1m8 - CHANGE PASSWORD\u001b[0m");
             System.out.println("\u001b[37;1m9 - EXIT FROM USER SESSION\u001b[0m");
 
-            switch (sc.next()) {
+            switch (sc.next().replaceAll("[^0-9]", "")) {
                 case "1":
                     computer.getMembership(this, user, membershipPrice);
                     logs.writeOnLog(user.getName() + " bought membership at "+ LocalDate.now() + " | " + LocalTime.now() + "\n");
