@@ -17,7 +17,7 @@ public class Person {
         this.username = username;
         this.password = password;
         requestedBooks = new ArrayList<>();
-        bankAccount = new BankAccount(name, 29);
+        bankAccount = new BankAccount(name);
     }
 
     public ArrayList<Book> getInventoryOfBooks() {
@@ -26,6 +26,10 @@ public class Person {
 
     public String getName() {
         return name;
+    }
+    public void work() throws InterruptedException {
+        Job job = new Job();
+        job.work(this);
     }
 
     public void setName(String name) {

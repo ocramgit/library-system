@@ -1,11 +1,19 @@
 public class BankAccount {
 
-    private double balance = 100;
+    private double balance;
     private final String name;
+    private String pin;
 
-    public BankAccount(String name, double initialBalance) {
+    public BankAccount(String name) {
         this.name = name;
-        this.balance = initialBalance;
+    }
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
     }
 
     public void setBalance(double balance) {
