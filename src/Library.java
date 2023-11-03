@@ -136,7 +136,8 @@ public class Library {
             System.out.println("\u001b[37;1m8 - CHECK LIBRARY BALANCE\u001b[0m");
             System.out.println("\u001b[37;1m9 - SET MEMBERSHIP PRICE\u001b[0m");
             System.out.println("\u001b[37;1m10 - CHECK LAST LOG\u001b[0m");
-            System.out.println("\u001b[37;1m11 - EXIT FROM ADMIN SESSION\u001b[0m");
+            System.out.println("\u001b[37;1m11 - FILTER LOG BY USER\u001b[0m");
+            System.out.println("\u001b[37;1m12 - EXIT FROM ADMIN SESSION\u001b[0m");
             System.out.print("\u001b[31;1mPlease select a option: \u001b[0m");
 
             switch (sc.next().replaceAll("[^0-9]", "")) {
@@ -181,13 +182,13 @@ public class Library {
                     logs.readLastLog();
                     break;
                 case "11":
-                    loggedIn = false;
-                    logs.writeOnLog("Admin logged out at "+ LocalDate.now() + " | " + LocalTime.now() + "\n");
-                    System.out.println("\u001b[31;1mLogged out.\u001b[0m");
+                    logs.getUserLogs();
                     break;
                 case "12":
-                    logs.getUserLogs(computer, users);
-                    break;
+                loggedIn = false;
+                logs.writeOnLog("Admin logged out at "+ LocalDate.now() + " | " + LocalTime.now() + "\n");
+                System.out.println("\u001b[31;1mLogged out.\u001b[0m");
+                break;
                 default:
                     System.out.println("\u001b[31;1mInvalid option.\u001b[0m");
                     break;

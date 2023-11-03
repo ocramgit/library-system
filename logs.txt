@@ -164,3 +164,134 @@ Admin registered a new system user at 2023-11-02 | 19:11:27.094800
 Admin removed a user from system at 2023-11-02 | 19:11:41.817362
 Admin removed a user from system at 2023-11-02 | 19:12:15.742884
 Admin checked library balance at 2023-11-02 | 19:12:20.993315
+Admin checked stock at 2023-11-02 | 19:17:42.612809
+Admin checked logs at 2023-11-02 | 19:17:47.476025
+Admin searched log of marco at 2023-11-02 | 19:31:44.116729
+Admin logged out at 2023-11-02 | 19:31:56.812982
+Admin checked stock at 2023-11-03 | 08:00:19.274752
+Admin checked stock at 2023-11-03 | 08:00:20.411548
+Admin checked stock at 2023-11-03 | 08:00:20.571747
+Admin checked stock at 2023-11-03 | 08:00:20.739871
+Admin checked stock at 2023-11-03 | 08:00:20.909372
+Admin checked stock at 2023-11-03 | 08:00:21.062037
+Admin checked stock at 2023-11-03 | 08:00:21.222304
+Admin checked stock at 2023-11-03 | 08:00:21.391915
+Admin checked stock at 2023-11-03 | 08:00:21.552770
+Admin checked stock at 2023-11-03 | 08:00:21.719868
+Admin checked stock at 2023-11-03 | 08:00:21.880723
+Admin check book list at 2023-11-03 | 08:00:23.160138
+Admin added a book at 2023-11-03 | 08:00:28.716863
+Admin removed a user from system at 2023-11-03 | 08:00:31.931641
+Admin removed a user from system at 2023-11-03 | 08:00:33.346607
+Admin removed a user from system at 2023-11-03 | 08:00:33.610400
+Admin removed a user from system at 2023-11-03 | 08:00:33.815376
+Admin removed a user from system at 2023-11-03 | 08:00:34.008878
+Admin removed a user from system at 2023-11-03 | 08:00:34.191132
+Admin removed a user from system at 2023-11-03 | 08:00:34.364646
+Admin removed a user from system at 2023-11-03 | 08:00:34.555219
+Admin removed a user from system at 2023-11-03 | 08:00:34.734634
+Admin removed a user from system at 2023-11-03 | 08:00:34.908642
+Admin added a book at 2023-11-03 | 08:01:18.882857
+Admin added a book at 2023-11-03 | 08:01:25.144528
+Admin checked stock at 2023-11-03 | 08:01:26.792549
+Admin added a book at 2023-11-03 | 08:01:48.027406
+Admin check book list at 2023-11-03 | 08:01:53.646197
+Admin checked stock at 2023-11-03 | 08:01:54.384552
+Admin check book list at 2023-11-03 | 08:01:56.436522
+Admin logged out at 2023-11-03 | 08:02:05.189689
+marco worked online at 2023-11-03 | 08:02:19.097717
+marco bought membership at 2023-11-03 | 08:02:23.608228
+marco bought membership at 2023-11-03 | 08:02:25.795611
+marco worked online at 2023-11-03 | 08:02:31.266949
+marco bought membership at 2023-11-03 | 08:02:38.717345
+marco checked membership status at 2023-11-03 | 08:02:47.567838
+marco checked books list at 2023-11-03 | 08:02:51.358124
+marco requested a book at 2023-11-03 | 08:03:14.261723
+marco checked books list at 2023-11-03 | 08:03:19.322415
+marco entered on Bank Online at 2023-11-03 | 08:03:29.508490
+marco entered on Bank Online at 2023-11-03 | 08:21:38.935710
+marco entered on Bank Online at 2023-11-03 | 08:21:46.225555
+marco entered on Bank Online at 2023-11-03 | 08:21:49.474999
+marco entered on Bank Online at 2023-11-03 | 08:21:50.314747
+marco entered on Bank Online at 2023-11-03 | 08:21:50.926233
+marco entered on Bank Online at 2023-11-03 | 08:21:51.432915
+marco entered on Bank Online at 2023-11-03 | 08:21:51.738308
+marco entered on Bank Online at 2023-11-03 | 08:21:53.095484
+marco entered on Bank Online at 2023-11-03 | 08:21:54.330122
+marco entered on Bank Online at 2023-11-03 | 08:22:37.160479
+marco entered on Bank Online at 2023-11-03 | 08:22:43.164665
+marco entered on Bank Online at 2023-11-03 | 08:22:47.060185
+marco entered on Bank Online at 2023-11-03 | 08:22:52.097048
+marco logged out at 2023-11-03 | 08:23:47.832905
+Admin searched log of ooo at 2023-11-03 | 08:23:53.581358
+Admin searched log of admin000 at 2023-11-03 | 08:24:07.333231
+Admin searched log of marco at 2023-11-03 | 08:24:17.949568
+Admin checked users list at 2023-11-03 | 08:24:40.885294
+marco requested a book at 2023-11-03 | 08:30:52.234353
+marco checked books list at 2023-11-03 | 08:31:00.304305
+marco logged out at 2023-11-03 | 08:31:02.847508
+Admin checked users list at 2023-11-03 | 08:31:10.390293
+marco logged out at 2023-11-03 | 08:33:58.882552
+marco logged out at 2023-11-03 | 08:34:51.157979
+Admin added a book at 2023-11-03 | 08:35:01.071504
+Admin added a book at 2023-11-03 | 08:35:32.908771
+Admin added a book at 2023-11-03 | 08:37:16.189621
+Admin added a book at 2023-11-03 | 08:37:57.043120
+Admin added a book at 2023-11-03 | 08:38:00.560785
+Admin added a book at 2023-11-03 | 08:38:08.003265
+Admin logged out at 2023-11-03 | 08:38:10.902906
+marco requested a book at 2023-11-03 | 08:38:26.561670
+marco bought membership at 2023-11-03 | 08:38:27.479743
+marco worked online at 2023-11-03 | 08:38:33.141425
+marco bought membership at 2023-11-03 | 08:38:34.557255
+marco worked online at 2023-11-03 | 08:38:39.227102
+marco bought membership at 2023-11-03 | 08:38:42.544242
+marco requested a book at 2023-11-03 | 08:38:47.120471
+marco logged out at 2023-11-03 | 08:39:19.488125
+Admin checked users list at 2023-11-03 | 08:39:23.566428
+Admin logged out at 2023-11-03 | 08:39:26.644739
+Admin logged out at 2023-11-03 | 08:39:42.055095
+marco requested a book at 2023-11-03 | 08:39:47.506823
+marco requested a book at 2023-11-03 | 08:39:50.818866
+marco logged out at 2023-11-03 | 08:39:52.447794
+marco logged out at 2023-11-03 | 08:40:00.219198
+Admin checked users list at 2023-11-03 | 08:40:09.043861
+marco worked online at 2023-11-03 | 08:44:07.746031
+marco bought membership at 2023-11-03 | 08:44:11.339128
+marco logged out at 2023-11-03 | 08:44:14.499342
+Admin added a book at 2023-11-03 | 08:45:04.958259
+Admin added a book at 2023-11-03 | 08:45:12.954158
+Admin added a book at 2023-11-03 | 08:45:41.557117
+Admin added a book at 2023-11-03 | 08:45:44.895089
+Admin added a book at 2023-11-03 | 08:45:46.876969
+Admin added a book at 2023-11-03 | 08:45:50.756766
+Admin added a book at 2023-11-03 | 08:46:26.009120
+Admin added a book at 2023-11-03 | 08:46:28.458386
+Admin added a book at 2023-11-03 | 08:46:30.864183
+Admin added a book at 2023-11-03 | 08:46:33.440979
+Admin added a book at 2023-11-03 | 08:46:36.436193
+Admin added a book at 2023-11-03 | 08:46:43.181523
+Admin added a book at 2023-11-03 | 08:50:29.579463
+David bought membership at 2023-11-03 | 09:30:57.529211
+David entered on Bank Online at 2023-11-03 | 09:31:16.640179
+David entered on Bank Online at 2023-11-03 | 09:31:46.406051
+David worked online at 2023-11-03 | 09:31:53.696466
+David worked online at 2023-11-03 | 09:32:01.378808
+David worked online at 2023-11-03 | 09:32:07.249324
+David worked online at 2023-11-03 | 09:32:13.214877
+David bought membership at 2023-11-03 | 09:32:23.685084
+David checked membership status at 2023-11-03 | 09:32:40.691189
+David requested a book at 2023-11-03 | 09:32:49.747745
+David logged out at 2023-11-03 | 09:33:03.444044
+Admin added a book at 2023-11-03 | 09:33:21.778532
+Admin check book list at 2023-11-03 | 09:33:30.799872
+Admin searched log of david at 2023-11-03 | 09:34:40.527681
+Admin searched log of marco at 2023-11-03 | 09:34:51.668819
+Admin logged out at 2023-11-03 | 09:35:23.786639
+David requested a book at 2023-11-03 | 09:35:38.107610
+David returned a book at 2023-11-03 | 09:35:58.364011
+David logged out at 2023-11-03 | 09:36:16.792965
+Admin checked logs at 2023-11-03 | 09:36:28.214748
+Admin searched log of David at 2023-11-03 | 09:36:49.724471
+Admin added a book at 2023-11-03 | 09:54:10.424310
+Admin added a book at 2023-11-03 | 09:57:24.321692

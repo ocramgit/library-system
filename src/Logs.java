@@ -36,22 +36,30 @@ public class Logs {
         in.close();
     }
 
-    public void getUserLogs(Computer computer, ArrayList<Person> users) throws IOException {
+    public void getUserLogs() throws IOException {
+
+        BufferedReader in = new BufferedReader(new FileReader(file.getAbsolutePath()));
 
         Scanner sc = new Scanner(System.in);
 
-        BufferedReader in = new BufferedReader(new FileReader(file.getAbsolutePath()));
-        String line = in.readLine();
-
-        System.out.println("Write a username: ");
+        System.out.print("\n\u001b[31;1mWrite a username:\u001b[0m ");
         String username = sc.nextLine();
+        writeOnLog("Admin searched log of " + username.toLowerCase() + " at "+ LocalDate.now() + " | " + LocalTime.now() + "\n");
 
-            while (line != null) {
-                if(line.contains(username)) {
-                    System.out.println(line);
-                    line = in.readLine();
-                }
+        String line;
+        boolean userFound = false;
+
+        while ((line = in.readLine()) != null) {
+            if (line.contains(username)) {
+                System.out.println(line);
+                userFound = true;
             }
-            System.out.println("User not found.");
+        }
+
+        in.close();
+
+        if (!userFound) {
+            System.out.println("\n\u001b[31;1mUser not found.\u001b[0m");
+        }
     }
 }

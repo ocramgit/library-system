@@ -94,16 +94,16 @@ public class Computer {
         if (!users.isEmpty()) {
 
             for (Person user : users) {
-                System.out.println("\u001b[32;1m" + countUsers++ + " "
+                System.out.println("\u001b[32;1m" + countUsers++ + " - "
                         + user.getName()
-                        + " MEMBER: " + user.isMember() + "\u001b[0m");
+                        + "| MEMBERSHIP: " + user.isMember() + "\u001b[0m");
 
                 if (!user.getInventoryOfBooks().isEmpty()) {
-                    System.out.print("\u001b[32;1mBooks: \u001b[0m");
                     for (int i = 0; i < user.getInventoryOfBooks().size(); i++) {
-
-                        System.out.println(user.getInventoryOfBooks().get(i).getBookName() + " ");
+                        System.out.print("\u001b[32;1mBook: \u001b[0m" + user.getInventoryOfBooks().get(i).getBookName() + " \n");
                     }
+                } else {
+                    System.out.println("\u001b[32;1mBooks: \u001b[0m0\n");
                 }
             }
 
@@ -144,12 +144,13 @@ public class Computer {
 
 
     public void addBook(ArrayList<Book> books) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("\n\u001b[32;1mBook name: \u001b[0m");
-        String bookNameFix = sc.nextLine();
-        String bookName = bookNameFix;
+        String bookName = scanner.nextLine();
         System.out.println("\u001b[32;1mAuthor: \u001b[0m");
         String author = sc.nextLine();
-        books.add(new Book(bookName, author));
+        String authorFix =  author;
+        books.add(new Book(bookName, authorFix));
         System.out.println("\u001b[32;1mBook added!\u001b[0m\n");
     }
 
@@ -188,7 +189,7 @@ public class Computer {
 
             if (!books.isEmpty()) {
                 getBookList(books);
-                System.out.println("\n\u001b[31;1mWhat book you want to request?\u001b[0m\n");
+                System.out.println("\n\u001b[31;1mWhat book you want to request?\u001b[0m");
                 System.out.print("\u001b[31;1mPlease select a option: \u001b[0m\n");
                 int inputUser = sc.nextInt();
                 if (inputUser >= 1 && inputUser <= books.size()) {
@@ -199,7 +200,7 @@ public class Computer {
 
                     user.getInventoryOfBooks().add(requestedBook);
                     books.remove(requestedBook);
-                    System.out.println("\n\u001b[32;1mYou now have the " + requestedBook.getBookName() + " book!\u001b[0m\n");
+                    System.out.println("\u001b[32;1mYou now have the " + requestedBook.getBookName() + " book!\u001b[0m\n");
                 } else {
                     System.out.println("\n\u001b[31;1mBook not found.\u001b[0m\n");
                 }
@@ -291,27 +292,31 @@ public class Computer {
 
     public void bankOnline(Person user) {
         boolean loggedInBank = false;
-
-        if (user.getBankAccount().getPin() == null) {
-            System.out.println("\n\u001b[32;1mChoose a pin with 4 digits.\u001b[0m");
-            System.out.print("\u001b[32;1mPin: \u001b[0m");
-            String pin = sc.next();
-            if (pin.length() == 4) {
-                user.getBankAccount().setPin(pin);
-                System.out.println("\u001b[32;1mPin set.\u001b[0m\n");
+        try {
+            if (user.getBankAccount().getPin() == null) {
+                System.out.println("\n\u001b[32;1mChoose a pin with 4 digits.\u001b[0m");
+                System.out.print("\u001b[32;1mPin: \u001b[0m");
+                int pin = sc.nextInt();
+                if (Integer.toString(pin).length() == 4) {
+                    user.getBankAccount().setPin(String.valueOf(pin));
+                    System.out.println("\u001b[32;1mPin set.\u001b[0m\n");
+                } else {
+                    System.out.println("\n\u001b[31;1mYou need add a pin with 4 digits.\u001b[0m\n");
+                }
             } else {
-                System.out.println("\n\u001b[31;1mYou need add a pin with 4 digits.\u001b[0m\n");
+                System.out.println("\u001b[32;1mEnter bank pin:\u001b[0m");
+                System.out.print("\u001b[32;1mPin: \u001b[0m");
+                String pin = sc.next();
+                if (user.getBankAccount().getPin().equals(pin)) {
+                    System.out.println("\u001b[32;1mWelcome, " + user.getName() + "!\u001b[0m\n");
+                    loggedInBank = true;
+                } else {
+                    System.out.println("\u001b[31;1mWrong pin.\u001b[0m\n");
+                }
             }
-        } else {
-            System.out.println("\u001b[32;1mEnter bank pin:\u001b[0m");
-            System.out.print("\u001b[32;1mPin: \u001b[0m");
-            String pin = sc.next();
-            if (user.getBankAccount().getPin().equals(pin)) {
-                System.out.println("\u001b[32;1mWelcome, " + user.getName() + "!\u001b[0m\n");
-                loggedInBank = true;
-            } else {
-                System.out.println("\u001b[31;1mWrong pin.\u001b[0m\n");
-            }
+        } catch (Exception e) {
+            System.out.println("\u001b[31;1mInvalid pin, you can't use letters.\u001b[0m\n");
+            sc.next();
         }
 
         while (loggedInBank) {
